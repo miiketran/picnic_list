@@ -1,0 +1,9 @@
+{
+  "name": "picnic_list",
+  "version": "0.0.1",
+  "dependencies": {
+    "body-parser": "^1.13.1",
+    "express": "~4.2.0",
+    "mongoose": "^4.0.6"
+  }
+}
