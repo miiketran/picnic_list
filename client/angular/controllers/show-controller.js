@@ -14,6 +14,15 @@ myApp.controller('showController', function($scope, eventFactory, $routeParams, 
 		};
 	}
 
+
+	$scope.turnOff = function(item){
+		for (var i in $scope.events[$scope.id].items){
+			if ($scope.events[$scope.id].items[i].name == item){
+				$scope.events[$scope.id].items[i].truth = false;
+			}
+		};
+	}
+
 	$scope.claimItem = function(item){
 		for (var i in $scope.events[$scope.id].items){
 			if ($scope.events[$scope.id].items[i].name == item){
@@ -21,6 +30,8 @@ myApp.controller('showController', function($scope, eventFactory, $routeParams, 
 					$scope.events[$scope.id].items[i].claims = [];
 				}
 				$scope.events[$scope.id].items[i].claims.push($scope.itemClaim);
+				// update in database here... REMEMBER
+				eventFactory.claimItem($scope.events[$scope.id]._id, $scope.events[$scope.id].items)
 				$scope.events[$scope.id].items[i].truth = false;
 				$scope.itemClaim = {};
 			}

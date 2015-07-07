@@ -16,4 +16,8 @@ module.exports = function(app){
 	app.post('/updateEvent', function(req,res){
 		events.update(req,res);
 	})
+
+	app.post('/claimItem', function(req,res){
+		events.claimItem(req,res);
+	})
 };

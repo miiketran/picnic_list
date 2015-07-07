@@ -31,5 +31,8 @@ module.exports = {
 
 	update: function(req,res){
 		
+	},
+	claimItem: function(req,res){
+		Event.update({_id: req.body.id}, {$set: {items:req.body.array}}).exec();
 	}
 }

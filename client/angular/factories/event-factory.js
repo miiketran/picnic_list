@@ -28,5 +28,16 @@ myApp.factory('eventFactory', function($http){
 		})
 	}
 
+	factory.claimItem = function(id, array){
+		var post = {};
+		post.id = id;
+		post.array = array;
+		$http.post('/claimItem', post).success(function(result){
+			
+		})
+
+		
+	}
+
 	return factory
 })
