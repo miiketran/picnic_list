@@ -2,11 +2,11 @@ myApp.controller('showController', function($scope, eventFactory, $routeParams, 
 	$scope.events = []; 
 	$scope.items = [];
 	$scope.id = $routeParams.id;
+	$scope.itemClaim = {};
 
 	updateEvents();
 
 	$scope.turnOn = function(item){
-		
 		for (var i in $scope.events[$scope.id].items){
 			if ($scope.events[$scope.id].items[i].name == item){
 				$scope.events[$scope.id].items[i].truth = true;
@@ -14,9 +14,17 @@ myApp.controller('showController', function($scope, eventFactory, $routeParams, 
 		};
 	}
 
-	$scope.claimItem = function(){
-		console.log($scope.events[$scope.id].items);
-
+	$scope.claimItem = function(item){
+		for (var i in $scope.events[$scope.id].items){
+			if ($scope.events[$scope.id].items[i].name == item){
+				if (typeof $scope.events[$scope.id].items[i].claims == 'undefined'){
+					$scope.events[$scope.id].items[i].claims = [];
+				}
+				$scope.events[$scope.id].items[i].claims.push($scope.itemClaim);
+				$scope.events[$scope.id].items[i].truth = false;
+				$scope.itemClaim = {};
+			}
+		}
 	}
 
 	function addItemArray(){
