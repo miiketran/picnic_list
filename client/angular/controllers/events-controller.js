@@ -40,6 +40,7 @@ myApp.controller('eventsController', function($scope, eventFactory, $routeParams
 	}
 
 	$scope.updateEvent = function(id){
+		$scope.newEvent._id = $scope.events[id]._id; 
 		$scope.newEvent.items = $scope.events[id].items;
 		eventFactory.updateEvent($scope.newEvent, function(output){
 			updateEvents();

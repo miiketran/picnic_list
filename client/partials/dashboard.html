@@ -3,13 +3,13 @@
 		<h1>List Planner</h1>
 		<p>Welcome Andrew</p>
 	</div>
-	<div ng-repeat="event in events" style="border: 1px solid silver">
+	<div ng-repeat="event in events | orderBy: 'date'" style="border: 1px solid silver">
 		<a href="#/{{events.indexOf(event)}}/show">
 			<div>
 				<p>{{event.title}}</p>
 				<p>{{event.description}}</p>
 				<p>{{event.date | date:'MM/dd/yyyy'}}</p>
-				<p>{{event.time | date:'HH:mm a'}}</p>
+				<p>{{event.time | date:'hh:mm a'}}</p>
 			</div>
 		</a>
 	</div>

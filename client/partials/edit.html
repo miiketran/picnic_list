@@ -14,9 +14,9 @@
 		<label>Event Description</label>
 		<input type="text" ng-model="newEvent.description">
 		<label>Event Date</label>
-		<input type="text" value="{{events[id].date | date:'MM/dd/yyyy'}}" ng-model="newEvent.date">
+		<input type="date" class="datepicker" ng-model="newEvent.date">
 		<label>Event Time</label>
-		<input type="text" value="{{events[id].time | date:'hh:mm a'}}" ng-model="newEvent.time">
+		<input type="time" ng-model="newEvent.time">
 		<label>Items</label>
 		<div style="border: 1px solid silver">
 			<ul>
