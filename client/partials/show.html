@@ -1,10 +1,22 @@
-<div ng-controller="eventsController">
+<div ng-controller="showController">
 	<h3>{{events[id].title}}</h3>
 	<h5>{{events[id].description}}</h5>
 	<h5>{{events[id].date | date:'MM/dd/yyyy'}} @{{events[id].time | date:'hh:mm a'}}</h5>
 	<div style="border: 1px solid silver">
 		<ul>
-			<li ng-repeat="item in events[id].items">{{item.quantity}} {{item.name}}</li>
+      <div ng-repeat="item in events[id].items">
+  			<li ng-click="turnOn(item.name)">{{item.quantity}} {{item.name}}
+        </li>
+        <div ng-show='item.truth'>
+          
+            <select class="browser-default" material-select>
+              <option ng-repeat="number in item.itemArray">{{number}}</option>
+            </select>
+            <input type='text' placeholder='Description'>              
+            <button type='submit' ng-click="claimItem()">Claim This Item</button>
+          
+        </div>
+      </div>
 		</ul>
 	</div>
 	<a href="#/{{id}}/edit"><button>Edit Event</button></a> 
