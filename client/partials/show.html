@@ -1,0 +1,11 @@
+<div ng-controller="eventsController">
+	<h3>{{events[id].title}}</h3>
+	<h5>{{events[id].description}}</h5>
+	<h5>{{events[id].date | date:'MM/dd/yyyy'}} @{{events[id].time | date:'hh:mm a'}}</h5>
+	<div style="border: 1px solid silver">
+		<ul>
+			<li ng-repeat="item in events[id].items">{{item.quantity}} {{item.name}}</li>
+		</ul>
+	</div>
+	<a href="#/{{id}}/edit"><button>Edit Event</button></a> 
+</div>

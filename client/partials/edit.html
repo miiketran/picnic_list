@@ -1,0 +1,34 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+       $('.datepicker').pickadate({
+          selectMonths: true, // Creates a dropdown to control month
+          selectYears: 15, // Creates a dropdown of 15 years to control year
+        });
+    })
+</script>
+<div ng-controller="eventsController">
+	<form>
+		<br><br><br>
+		<label>Event Title</label>
+		<input id="eventName" type="text" ng-model="newEvent.title">
+		<label>Event Description</label>
+		<input type="text" ng-model="newEvent.description">
+		<label>Event Date</label>
+		<input type="text" value="{{events[id].date | date:'MM/dd/yyyy'}}" ng-model="newEvent.date">
+		<label>Event Time</label>
+		<input type="text" value="{{events[id].time | date:'hh:mm a'}}" ng-model="newEvent.time">
+		<label>Items</label>
+		<div style="border: 1px solid silver">
+			<ul>
+				<li ng-repeat="item in events[id].items">{{item.quantity}} {{item.name}}</li>
+			</ul>
+			<form>
+				<input type="number" value="1" ng-model="newItem.quantity">
+				<input type="text" placeholder="Item name" ng-model="newItem.name">
+				<input type="submit" value="Add Another Item" ng-click="addItem2(id)">
+			</form>
+		</div>
+		<input type="submit" value="Update Event" ng-click="updateEvent(id)">
+	</form>
+	<a href="#/{{id}}/show"><button>Go Back</button></a>
+</div>
