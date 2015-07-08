@@ -37,17 +37,19 @@
 			</ul>
 				<ul>
 					<div class="row">
-						<div class="col s2">
-							<label for="quantity">Quantity</label>
-							<input name="quantity" type="number" value="1" ng-model="newItem.quantity" class="new_quantity">
-						</div>
-						<div class="input-field col s6">
-							<label for="name">Item</label>
-							<input name="name" type="text" ng-model="newItem.name">
-						</div>
-						<div class="col s2">
-										 <a ng-click="addItem()" class="btn-floating btn-large waves-effect waves-light light-blue accent-1 "><i class="material-icons">add</i></a>
-						</div>
+						
+							<div class="col s2">
+								<label for="quantity">Quantity</label>
+								<input name="quantity" type="number" value="1" ng-model="newItem.quantity" class="new_quantity" >
+							</div>
+							<div class="input-field col s6">
+								<label for="name">Item</label>
+								<input name="name" type="text" ng-model="newItem.name">
+							</div>
+							<div class="col s2">
+											 <a ng-click="addItem()" class="btn-floating btn-large waves-effect waves-light light-blue accent-1"><i class="material-icons">add</i></a>
+							</div>
+						
 					</div> <!-- end row -->
 					<!-- <input type="submit" value="Add Another Item" ng-click="addItem()"> -->
 				</ul>
