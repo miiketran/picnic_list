@@ -26,6 +26,9 @@ myApp.factory('eventFactory', function($http){
 
 	factory.updateEvent = function(info, callback){
 		$http.post('/updateEvent', info).success(function(result){
+			$http.get('/events').success(function(output){
+			events = output;
+			})
 			callback(events);
 		})
 	}

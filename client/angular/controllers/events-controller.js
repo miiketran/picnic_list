@@ -2,7 +2,6 @@ myApp.controller('eventsController', function($scope, eventFactory, userFactory,
 	$scope.events = []; 
 	$scope.items = [];
 	$scope.id = $routeParams.id;
-	// $scope.newEvent.title = $scope.events[id].title;
 	updateEvents();
 	getUser();
 	
@@ -57,6 +56,7 @@ myApp.controller('eventsController', function($scope, eventFactory, userFactory,
 	}
 
 	$scope.updateEvent = function(id){
+		console.log("Hello");
 		var newEvent = {
 			title: $scope.events[id].title,
 			description: $scope.events[id].description,
@@ -65,7 +65,7 @@ myApp.controller('eventsController', function($scope, eventFactory, userFactory,
 			_id: $scope.events[id]._id,
 			items: $scope.events[id].items
 		}
-		// console.log(newEvent);
+		console.log(newEvent.time);
 		eventFactory.updateEvent(newEvent, function(output){
 			updateEvents();
 			newEvent = {};

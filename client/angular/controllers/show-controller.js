@@ -39,7 +39,6 @@ myApp.controller('showController', function($scope, eventFactory, $routeParams, 
 	}
 
 	function addItemArray(){
-		console.log($scope.events);
 		for (var i in $scope.events[$scope.id].items){
 			var itemArray = [];
 			for (var j=1; j < $scope.events[$scope.id].items[i].quantity+1; j++){
