@@ -47,6 +47,18 @@ h1 {
   text-shadow: 0 0 40px #fff;
   font-weight: 300;
 }
+h3 {
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+h5{
+  font-style: italic;
+}
+
+#slider {
+    opacity: 0.75;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+}
 
 #container {
   background-color: rgba(0,0,0,0.5);
@@ -55,6 +67,10 @@ h1 {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+a{
+  opacity: 0.75;
 }
 
 .wrapper {
@@ -89,7 +105,7 @@ h1 {
     }(document, 'script', 'facebook-jssdk'));
 
     $(document).ready(function(){
-      $('.slider').slider({full_width: true});
+      $('.slider').slider({full_width: true, interval:4000});
     });
   </script>
   <div class="wrapper">
@@ -97,33 +113,34 @@ h1 {
     <div class="text">
       <div class="container">
 
+
     <h1>Bring it</h1>
-    <div class="slider">
+    <br><br><br><br>
+    <div id="slider" class="slider">
     <ul class="slides">
       <li>
-        <img src="http://lorempixel.com/580/250/nature/1"> <!-- random image -->
-        <div class="caption center-align">
-          <h3>Create events</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        <img src="http://www.rissyroos.com/blog/wp-content/uploads/2013/05/Beach_Bonfire_by_anarsil-1024x768.jpg"> <!-- random image -->
+        <div class="caption left-align">
+          <h3>Create Events</h3>
+          <h5>for parties, potlucks, and more</h5>
         </div>
       </li>
       <li>
-        <img src="http://lorempixel.com/580/250/nature/2"> <!-- random image -->
+        <img src="http://blob.vilondo.com/content/galleries/gili-guide/F44/Gili-Trawangan-beach-huts-a-night.jpg"> <!-- random image -->
         <div class="caption left-align">
           <h3>Create a list of items for guests to bring</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+          <h5></h5>
         </div>
       </li>
       <li>
-        <img src="http://lorempixel.com/580/250/nature/3"> <!-- random image -->
+        <img src="http://s2.favim.com/orig/33/beach-car-dark-fire-fireplace-Favim.com-263468.jpg"> <!-- random image -->
         <div class="caption right-align">
-          <h3>Share with your guests so they can bring items</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+          <h3>Share the items on the list with your guests so they can bring it!</h3>
         </div>
       </li>
     </ul>
   </div>
-    <a href="/auth/facebook"><button class="btn">Log In</button></a>
+    <a href="/auth/facebook"><button class="btn">Log in with Facebook</button></a>
   </div>
     </div>
 <script>
