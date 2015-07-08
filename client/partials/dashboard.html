@@ -1,7 +1,13 @@
 <div ng-controller="eventsController">
 	<div>
 		<h1>List Planner</h1>
-		<p>Welcome Andrew</p>
+		<p>Welcome {{ user.displayName }}</p>
+		<div
+		  class="fb-like"
+		  data-share="true"
+		  data-width="450"
+		  data-show-faces="true">
+		</div>
 	</div>
 	<div ng-repeat="event in events | orderBy: 'date'" style="border: 1px solid silver">
 		<a href="#/{{events.indexOf(event)}}/show">

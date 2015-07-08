@@ -12,6 +12,8 @@ myApp.factory('eventFactory', function($http){
 	factory.addEvent = function(info, callback){
 		$http.post('/addEvent', info).success(function(result){
 			events.push({
+				admin_id: result.admin_id,
+				admin_name: result.admin_name,
 				title: result.title,
 				description: result.description, 
 				date: result.date, 

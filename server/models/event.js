@@ -2,7 +2,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var EventSchema = new mongoose.Schema({
-	admin: String,
+  admin_id: String,
+  admin_name: String,
 	title: String,
 	description: String,
 	date: Date,

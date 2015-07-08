@@ -1,4 +1,5 @@
 var events = require('./../server/controllers/events.js');
+var users = require('./../server/controllers/users.js');
 
 module.exports = function(app){
 	app.get('/events', function(req,res){
@@ -19,5 +20,8 @@ module.exports = function(app){
 
 	app.post('/claimItem', function(req,res){
 		events.claimItem(req,res);
+	})
+	app.get('/user', function(req,res){
+		users.show(req,res);
 	})
 };
