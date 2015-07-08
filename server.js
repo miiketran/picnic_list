@@ -6,8 +6,8 @@ var cookieParser = require('cookie-parser');
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
  
-var FACEBOOK_APP_ID = '797052533725860';
-var FACEBOOK_APP_SECRET = 'd47c3340c3d5d51b38e50d8e499a272d';
+var FACEBOOK_APP_ID = '535173049968945';
+var FACEBOOK_APP_SECRET = '542794f72b16288960cdb42bc87bffb7';
 
 
 var app = express();
