@@ -8,16 +8,16 @@
 </script>
 
 <div ng-controller="eventsController">
-	<form>
+	<form name="eventForm">
 		<br><br><br>
 		<p>Event Title:</p>
-		<input type="text" placeholder="Title" ng-model="newEvent.title">
+		<input type="text" placeholder="Title" ng-model="newEvent.title" required>
 		<p>Description:</p>
 		<input type="text" placeholder="Enter your description here." ng-model="newEvent.description">
 		<p>Date:</p>
-		<input type="date" class="datepicker" ng-model="newEvent.date">
+		<input type="date" class="datepicker" ng-model="newEvent.date" required>
 		<p>Time:</p>
-		<input type="time" ng-model="newEvent.time">
+		<input type="time" ng-model="newEvent.time" required>
 		<p>Items:</p>
 		<div style="border: 1px solid silver">
 			<ul>
@@ -31,6 +31,6 @@
 				</ul>
 			</form>
 		</div>
-		<a href="#/"><input type="submit" value="Save" ng-click="addEvent(items)"></a>
+		<a href="#/"><input type="submit" value="Save" ng-click="addEvent(items)" ng-dsiabled="eventForm.$invalid"></a>
 	</form>
 </div>

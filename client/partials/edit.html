@@ -10,13 +10,13 @@
 	<form>
 		<br><br><br>
 		<label>Event Title</label>
-		<input id="eventName" type="text" ng-model="newEvent.title">
+		<input id="eventName" type="text" ng-model="events[id].title">
 		<label>Event Description</label>
-		<input type="text" ng-model="newEvent.description">
+		<input type="text" ng-model="events[id].description">
 		<label>Event Date</label>
-		<input type="date" class="datepicker" ng-model="newEvent.date">
+		<input type="date" class="datepicker" ng-model="events[id].date">
 		<label>Event Time</label>
-		<input type="time" ng-model="newEvent.time">
+		<input type="time" ng-model="event[id].time">
 		<label>Items</label>
 		<div style="border: 1px solid silver">
 			<ul>
