@@ -10,48 +10,49 @@
 	<h3>{{events[id].title}}</h3>
 	<h5>{{events[id].description}}</h5>
 	<h5>{{events[id].date | date:'MM/dd/yyyy'}} @ {{events[id].time | date:'hh:mm a'}}</h5>
-	       <div
+	     <div
         class="fb-like"
         data-share="true"
         data-width="450"
         data-show-faces="true">
       </div>
-  <div style="border: 1px solid silver">
+  <div>
 		<ul>
       <div ng-repeat="item in events[id].items">
-  			<li ng-click="turnOn(item.name)">{{item.quantity}} {{item.name}}
+  			<li ng-click="turnOn(item.name)" class="collapsible_li grey lighten-3"><h5>{{item.quantity}} {{item.name}}</h5>
         </li>
-        <li ng-repeat="claims in item.claims"> {{claims.name}}: {{claims.quantity}} {{claims.description}}
+        <li ng-repeat="claims in item.claims" class="claim_div"> 
+
+              <span class="claim_name">{{claims.name}} </span> is bringing {{claims.quantity}} {{claims.description}}
+
         </li>
-        <div ng-show='item.truth'>
-          <input type='text' placeholder='Name' ng-model='itemClaim.name'>
-          <select class="browser-default" material-select ng-model='itemClaim.quantity'>
-            <option ng-repeat="number in item.itemArray">{{number}}</option>
-          </select>
-          <input type='text' placeholder='Description' ng-model='itemClaim.description'>              
-          <button type='submit' ng-click="claimItem(item.name)">Claim This Item</button>
-          <button type='submit' ng-click="turnOff(item.name)">Cancel</button>
+        <div ng-show='item.truth' class="collapsible_body">
+          <div class="row">
+            <div class="input-field col s4 offset-s1">
+              <input id="name" type='text' ng-model='itemClaim.name'>
+              <label for="name">Name</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s2 offset-s1">
+              <label for="quantity">Quantity</label>
+              <select class="browser-default" material-select ng-model='itemClaim.quantity'>
+              <option ng-repeat="number in item.itemArray">{{number}}</option>
+              </select>
+            </div>
+            <div class="input-field col s8">
+              <input name="description" type='text' ng-model='itemClaim.description'>
+              <label for="description">Description</label>
+            </div>
+          </div>
+          <button type='submit' ng-click="claimItem(item.name)" class="waves-effect waves-light btn orange lighten-3">Claim This Item</button>
+          <button type='submit' ng-click="turnOff(item.name)" class="waves-effect waves-light btn orange lighten-3">Cancel</button>
         </div>
       </div>
 		</ul>
 	</div>
-
-<ul class="collapsible popout" data-collapsible="accordion">
-    <li ng-repeat="item in events[id].items">
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>{{ item.name }}</div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-    </li>
-  </ul>
         
 
-	<a href="#/{{id}}/edit"><button>Edit Event</button></a>
-  <a href="#/"><button>Go Back</button></a>
+	<a href="#/{{id}}/edit" class="waves-effect waves-light btn light-blue accent-1">Edit Event</a>
+  <a href="#/" class="waves-effect waves-light btn light-blue accent-1">Go Back</a>
 </div>

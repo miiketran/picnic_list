@@ -10,28 +10,52 @@
 <div ng-controller="eventsController">
 	<form name="eventForm">
 		<br><br><br>
-		<p>Event Title:</p>
-		<input type="text" placeholder="Title" ng-model="newEvent.title" required>
-		<p>Description:</p>
-		<input type="text" placeholder="Enter your description here." ng-model="newEvent.description">
-		<p>Date:</p>
-		<input type="date" class="datepicker" ng-model="newEvent.date" required>
-		<p>Time:</p>
-		<input type="time" ng-model="newEvent.time" required>
-		<p>Items:</p>
-		<div style="border: 1px solid silver">
+		<div class="row">
+			<div class="input-field col s4">
+				<input name="title" type="text" ng-model="newEvent.title" required>
+		    <label for="title">Event Title</label>
+			</div>
+			<div class="input-field col s8">
+				<input name="description" type="text" ng-model="newEvent.description">
+		    <label for="description">Description</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s4">
+				<input name="date" type="date" class="datepicker" ng-model="newEvent.date" required>
+		    <label for="date">Date</label>
+			</div>
+			<div class="col s4">
+				<input placeholder="Time" name="time" type="time" ng-model="newEvent.time" required>
+		    <label for="time">Time</label>
+			</div>
+		</div>
+		<h5>Items:</h5>
+		<div >
 			<ul>
 				<li ng-repeat="item in items">{{item.quantity}} {{item.name}}</li>
 			</ul>
-			<form>
 				<ul>
-					<input type="number" value="1" ng-model="newItem.quantity">
-					<input type="text" placeholder="Item name" ng-model="newItem.name">
-					<input type="submit" value="Add Another Item" ng-click="addItem()">
+					<div class="row">
+						<div class="col s2">
+							<label for="quantity">Quantity</label>
+							<input name="quantity" type="number" value="1" ng-model="newItem.quantity" class="new_quantity">
+						</div>
+						<div class="input-field col s6">
+							<label for="name">Item</label>
+							<input name="name" type="text" ng-model="newItem.name">
+						</div>
+						<div class="col s2">
+										 <a ng-click="addItem()" class="btn-floating btn-large waves-effect waves-light light-blue accent-1 "><i class="material-icons">add</i></a>
+						</div>
+					</div> <!-- end row -->
+					<!-- <input type="submit" value="Add Another Item" ng-click="addItem()"> -->
 				</ul>
-			</form>
 		</div>
-		<a href="#/"><input type="submit" value="Save" ng-click="addEvent(items)" ng-dsiabled="eventForm.$invalid"></a>
+		<div class="row">
+					<a href="#/"><input type="submit" value="Save" ng-click="addEvent(items)" ng-disabled="eventForm.$invalid" class="waves-effect waves-light btn orange lighten-3"></a>
 	</form>
-	<a href="#/"><button>Go Back</button></a>
+	<a href="#/"><button class="waves-effect waves-light btn orange lighten-3">Go Back</button></a>
+		</div>
+
 </div>
