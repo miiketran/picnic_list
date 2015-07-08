@@ -6,7 +6,7 @@ var EventSchema = new mongoose.Schema({
   admin_name: String,
 	title: String,
 	description: String,
-	date: Date,
+  date: Date,
 	time: String,
 	items: [],
 })
