@@ -21,6 +21,7 @@ module.exports = function(app){
 	app.post('/claimItem', function(req,res){
 		events.claimItem(req,res);
 	})
+	
 	app.get('/user', function(req,res){
 		users.show(req,res);
 	})

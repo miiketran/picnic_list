@@ -3,19 +3,17 @@ var path = require("path");
 var bodyParser = require("body-parser");
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
-
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
  
-var FACEBOOK_APP_ID = '535173049968945';
-var FACEBOOK_APP_SECRET = '542794f72b16288960cdb42bc87bffb7';
+var FACEBOOK_APP_ID = '797052533725860';
+var FACEBOOK_APP_SECRET = 'd47c3340c3d5d51b38e50d8e499a272d';
 
 
 var app = express();
 
 app.use(session({ secret: 'keyboard cat' }));
 app.use(cookieParser());
-
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 app.use(passport.initialize());
@@ -34,10 +32,9 @@ app.get('/', function (request, res) {
 
 // ensureAuthenticated is known as "route middleware"
 app.get('/main', ensureAuthenticated, function(req, res) {
-  console.log(req);
+  // console.log(req);
   // req.user.displayName shows name
   res.render('main');
-
 })
 
 
@@ -72,7 +69,8 @@ passport.deserializeUser(function(obj, done) {
 
 
 // Use the FacebookStrategy within Passport
-passport.use(new FacebookStrategy({
+passport.use(new FacebookStrategy(
+{
   clientID: FACEBOOK_APP_ID,
   clientSecret: FACEBOOK_APP_SECRET,
   callbackURL: 'http://localhost:8000/auth/facebook/callback'
@@ -82,9 +80,7 @@ passport.use(new FacebookStrategy({
       function (err, result) {
         // console.log(result);
           return done(null,result);
-      }
-    );
-
+      });
 }));
 
 app.get('/auth/facebook',
@@ -108,7 +104,6 @@ app.get('/logout', function (req, res) {
 app.listen(8000, function(){
   console.log("Listening on: 8000");
 });
-
 
 
 function ensureAuthenticated(req, res, next) {

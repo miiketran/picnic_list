@@ -32,9 +32,10 @@ module.exports = {
 	},
 
 	update: function(req,res){
-		Event.update({_id: req.body._id}, 
-			{$set: 
-			{title: req.body.title, 
+		Event.update(
+			{_id: req.body._id}, 
+			{$set: {
+				title: req.body.title, 
 				description: req.body.description, 
 				date: req.body.date, 
 				time: req.body.time, 
@@ -49,7 +50,10 @@ module.exports = {
 			}
 		});
 	},
+
 	claimItem: function(req,res){
-		Event.update({_id: req.body.id}, {$set: {items:req.body.array}}).exec();
+		Event.update(
+			{_id: req.body.id}, 
+			{$set: {items:req.body.array}}).exec();
 	}
 }

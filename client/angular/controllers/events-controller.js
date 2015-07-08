@@ -4,13 +4,14 @@ myApp.controller('eventsController', function($scope, eventFactory, userFactory,
 	$scope.id = $routeParams.id;
 	// $scope.newEvent.title = $scope.events[id].title;
 	updateEvents();
-  getUser();
-  function getUser(){
-    userFactory.getUser(function(output){
-    	console.log($scope.user);
-      $scope.user = output;
-    })
-  }
+	getUser();
+	
+	function getUser(){
+		userFactory.getUser(function(output){
+			// console.log($scope.user);
+			$scope.user = output;
+		})
+	}
 
 	function updateEvents(){
 		eventFactory.getEvents(function(output){
@@ -23,7 +24,6 @@ myApp.controller('eventsController', function($scope, eventFactory, userFactory,
 			name: $scope.newItem.name,
 			quantity: $scope.newItem.quantity
 		});
-
 		$scope.newItem.quantity = "";
 		$scope.newItem.name = "";
 	}
@@ -33,7 +33,6 @@ myApp.controller('eventsController', function($scope, eventFactory, userFactory,
 			name: $scope.newItem.name,
 			quantity: $scope.newItem.quantity
 		});
-
 		$scope.newItem.quantity = "";
 		$scope.newItem.name = "";
 	}
@@ -47,7 +46,6 @@ myApp.controller('eventsController', function($scope, eventFactory, userFactory,
 	}
 
 	$scope.updateEvent = function(id){
-
 		var newEvent = {
 			title: $scope.events[id].title,
 			description: $scope.events[id].description,
@@ -56,7 +54,7 @@ myApp.controller('eventsController', function($scope, eventFactory, userFactory,
 			_id: $scope.events[id]._id,
 			items: $scope.events[id].items
 		}
-		console.log(newEvent);
+		// console.log(newEvent);
 		eventFactory.updateEvent(newEvent, function(output){
 			updateEvents();
 			newEvent = {};

@@ -37,9 +37,7 @@ myApp.factory('eventFactory', function($http){
 		$http.post('/claimItem', post).success(function(result){
 			
 		})
-
-		
 	}
 
-	return factory
+	return factory;
 })

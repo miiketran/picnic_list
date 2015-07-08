@@ -1,7 +1,7 @@
 <div ng-controller="showController">
 	<h3>{{events[id].title}}</h3>
 	<h5>{{events[id].description}}</h5>
-	<h5>{{events[id].date | date:'MM/dd/yyyy'}} @{{events[id].time | date:'hh:mm a'}}</h5>
+	<h5>{{events[id].date | date:'MM/dd/yyyy'}} @ {{events[id].time | date:'hh:mm a'}}</h5>
 	<div style="border: 1px solid silver">
 		<ul>
       <div ng-repeat="item in events[id].items">
@@ -21,5 +21,6 @@
       </div>
 		</ul>
 	</div>
-	<a href="#/{{id}}/edit"><button>Edit Event</button></a> 
+	<a href="#/{{id}}/edit"><button>Edit Event</button></a>
+  <a href="#/"><button>Go Back</button></a>
 </div>
