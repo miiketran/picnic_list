@@ -16,6 +16,17 @@ myApp.controller('eventsController', function($scope, eventFactory, userFactory,
 	function updateEvents(){
 		eventFactory.getEvents(function(output){
 			$scope.events = output;
+			var pagesShown = 1;
+			var pageSize = 2;
+			$scope.paginationLimit = function() {
+				return pageSize * pagesShown;
+			};
+			$scope.hasMoreToShow = function() {
+				return pagesShown < ($scope.events.length / pageSize);
+			};
+			$scope.showMore = function() {
+				pagesShown = pagesShown + 1;
+			};
 		})
 	}
 	

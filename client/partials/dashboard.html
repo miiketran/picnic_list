@@ -1,6 +1,5 @@
 <div ng-controller="eventsController">
 	<div>
-		<h2>List of Events</h2>
 		<h4>Welcome, {{ user.displayName }}</h4>
 		<div
 		  class="fb-like"
@@ -8,19 +7,24 @@
 		  data-width="450"
 		  data-show-faces="true">
 		</div>
+		<h4>List of Events</h4>
 	</div>
-	<div ng-repeat="event in events | orderBy: 'date'" style="border: 1px solid silver">
-		<a href="#/{{events.indexOf(event)}}/show">
-			<div>
-				<p>{{event.title}}</p>
-				<p>{{event.description}}</p>
-				<p>{{event.date | date:'MM/dd/yyyy'}}</p>
-				<p>{{event.time | date:'hh:mm a'}}</p>
+	<div class="row">
+		<div class="col s6">
+			<div ng-repeat="event in events | orderBy: 'date' | limitTo: paginationLimit()" style="border: 1px solid silver">
+				<a href="#/{{events.indexOf(event)}}/show">
+					<div>
+						<p>{{event.title}}</p>
+						<p>{{event.description}}</p>
+						<p>{{event.date | date:'MM/dd/yyyy'}}</p>
+						<p>{{event.time | date:'hh:mm a'}}</p>
+					</div>
+				</a>
 			</div>
-		</a>
+			<a href="" ng-show="hasMoreToShow()" ng-click="showMore()"><p>Show more...</p></a>
+		</div>
+		<div class="col s6">
+			<a href="#/new"><h4>Create New Event (+)</h4></a>
+		</div>
 	</div>
-	<a href=""><p>show more...</p></a>
-	<a href=""><div style="border: 1px solid silver">
-		<a href="#/new"><h3>Create New List (+)</h3></a>
-	</div></a>
 </div>
