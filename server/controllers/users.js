@@ -4,7 +4,7 @@ var User = mongoose.model('User');
 module.exports = {
   show: function(req,res){
     User.findOne(
-        {'admin_id': req.user.admin_id}, 
+        {'profile_id': req.user.profile_id}, 
         function(err,result){
         if(err){
             console.log(err);
