@@ -6,9 +6,11 @@ var cookieParser = require('cookie-parser');
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
  
-var FACEBOOK_APP_ID = '535173049968945';
-var FACEBOOK_APP_SECRET = '542794f72b16288960cdb42bc87bffb7';
-
+// var FACEBOOK_APP_ID = '535173049968945';
+// var FACEBOOK_APP_SECRET = '542794f72b16288960cdb42bc87bffb7';
+// FOR TESTING
+var FACEBOOK_APP_ID = '536214779864772';
+var FACEBOOK_APP_SECRET = 'b83e3a06a941e3d2e98789e2ff0b07bb';
 
 var app = express();
 app.set('port', (process.env.PORT || 5000));
@@ -74,7 +76,9 @@ passport.use(new FacebookStrategy(
 {
   clientID: FACEBOOK_APP_ID,
   clientSecret: FACEBOOK_APP_SECRET,
-  callbackURL: 'https://event-registrar.herokuapp.com/auth/facebook/callback'
+  // callbackURL: 'https://event-registrar.herokuapp.com/auth/facebook/callback'
+  // FOR TESTING
+  callbackURL: 'http://localhost:5000/auth/facebook/callback'
 }, function(accessToken, refreshToken, profile, done) {
     User.findOrCreate(
       { profile_id:profile.id, displayName:profile.displayName },
