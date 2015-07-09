@@ -11,6 +11,7 @@ var FACEBOOK_APP_SECRET = '542794f72b16288960cdb42bc87bffb7';
 
 
 var app = express();
+app.set('port', (process.env.PORT || 5000));
 
 app.use(session({ secret: 'keyboard cat' }));
 app.use(cookieParser());
@@ -101,8 +102,8 @@ app.get('/logout', function (req, res) {
   res.redirect('/');
 });
 
-app.listen(8000, function(){
-  console.log("Listening on: 8000");
+app.listen(app.get('port'), function(){
+  console.log("Node app is running on port", app.get('port'));
 });
 
 
