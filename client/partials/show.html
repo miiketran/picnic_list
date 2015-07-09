@@ -4,9 +4,12 @@
       accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
     });
   });
+
+
 </script>
 
 <div ng-controller="showController">
+
 	<h3>{{events[id].title}}</h3>
 	<h5>{{events[id].description}}</h5>
 	<h5>{{events[id].date | date:'MM/dd/yyyy'}} @ {{events[id].time | date:'hh:mm a'}}</h5>
@@ -40,7 +43,7 @@
               <label for="description">Description</label>
             </div>
           </div>
-          <button type='submit' ng-click="claimItem(item.name)" class="waves-effect waves-light btn orange lighten-3">Bring It</button>
+          <button id="toastmaster" type='submit' ng-click="claimItem(item.name)" class="waves-effect waves-light btn orange lighten-3">Bring It</button>
           <button type='submit' ng-click="turnOff(item.name)" class="waves-effect waves-light btn orange lighten-3">Cancel</button>
         </div>
       </div>

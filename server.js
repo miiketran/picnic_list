@@ -106,9 +106,21 @@ app.get('/logout', function (req, res) {
   res.redirect('/');
 });
 
-app.listen(app.get('port'), function(){
+var server = app.listen(app.get('port'), function(){
   console.log("Node app is running on port", app.get('port'));
 });
+
+var io = require('socket.io').listen(server);
+
+io.sockets.on('connection', function(socket){
+  console.log(socket.id);
+
+  socket.on('toast', function(name){
+    io.emit('makeToast', name);
+  })
+
+
+})
 
 
 function ensureAuthenticated(req, res, next) {

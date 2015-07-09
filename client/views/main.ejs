@@ -21,6 +21,7 @@
   <script src="angular/factories/event-factory.js"></script>
   <script src="angular/controllers/show-controller.js"></script>
   <script src="angular/factories/user-factory.js"></script>
+  <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
 </head>
 <body>
   <script type="text/javascript">
@@ -57,6 +58,19 @@
        js.src = "//connect.facebook.net/en_US/sdk.js";
        fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
+    
+    var socket = io.connect();
+
+    $(document).on("click", '#toastmaster', function(){
+      socket.emit('toast', name);
+      console.log('this working?');
+    }) 
+
+    socket.on('makeToast', function(name){
+      Materialize.toast(name, 4000);
+    })
+
+    
   </script>
   <div class="container">
     <nav>

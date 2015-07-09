@@ -6,6 +6,15 @@ myApp.controller('showController', function($scope, eventFactory, userFactory, $
 	getUser();
 	updateEvents();
 
+$(document).ready(function (){
+
+	$(document).on("click", '#toastmaster', function(){
+			console.log($scope.itemClaim.quantity);
+			console.log($scope.itemClaim.description);
+      socket.emit('toast', $scope.user.displayName + " is bringing stuff to " + $scope.events[$scope.id].title);
+    }) 
+})
+
 	$scope.turnOn = function(item){
 		for (var i in $scope.events[$scope.id].items){
 			if ($scope.events[$scope.id].items[i].name == item){
@@ -39,7 +48,7 @@ myApp.controller('showController', function($scope, eventFactory, userFactory, $
 				$scope.events[$scope.id].items[i].claims.push($scope.itemClaim);
 				// update in database here... REMEMBER
 				eventFactory.claimItem($scope.events[$scope.id]._id, $scope.events[$scope.id].items)
-				$scope.events[$scope.id].items[i].truth = false;
+				$scope.events[$scope.id].items[i].truth = false;		
 				$scope.itemClaim = {};
 			}
 		}
