@@ -20,7 +20,7 @@
   <div>
 		<ul>
       <div ng-repeat="item in events[id].items">
-  			<li ng-click="turnOn(item.name)" class="collapsible_li grey lighten-3"><h5>{{item.quantity}} {{item.name}}</h5>
+  			<li ng-click="turnOn(item.name)" class="collapsible_li grey lighten-3"><h5>{{item.quantity}} {{item.name}} <span class="right green-text check" ng-show="hasMoreItems(item)"><i class="material-icons">done</i></span></h5>
         </li>
         <li ng-repeat="claims in item.claims" class="claim_div"> 
 

@@ -43,6 +43,7 @@ myApp.controller('showController', function($scope, eventFactory, userFactory, $
 				$scope.itemClaim = {};
 			}
 		}
+		updateEvents();
 	}
 
 	function addItemArray(){
@@ -100,5 +101,26 @@ myApp.controller('showController', function($scope, eventFactory, userFactory, $
 
 	$scope.removeItem = function(index){
 
+	}
+	$scope.hasMoreItems = function(item){
+		var total =0;
+		for (var i in $scope.events[$scope.id].items){
+			if ($scope.events[$scope.id].items[i].name == item.name){
+				if (typeof $scope.events[$scope.id].items[i].claims == 'undefined'){
+					return false
+				} else {
+					for(var j in $scope.events[$scope.id].items[i].claims){
+						total+=parseInt($scope.events[$scope.id].items[i].claims[j].quantity);
+					}
+				}
+			}
+		}
+		console.log(item.name + " quantity: " + total);
+		console.log("itemQuantity" + item.quantity);
+		if(total>= item.quantity){
+			return true;
+		} else {
+			return false;
+		}
 	}
 })

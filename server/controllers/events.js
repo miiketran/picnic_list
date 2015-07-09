@@ -55,5 +55,6 @@ module.exports = {
 		Event.update(
 			{_id: req.body.id}, 
 			{$set: {items:req.body.array}}).exec();
+		res.end();
 	}
 }

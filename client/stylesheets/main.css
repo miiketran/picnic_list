@@ -41,3 +41,6 @@
   position: relative;
   top: -8px;
 }
+.check{
+  border-radius:50%;
+}
