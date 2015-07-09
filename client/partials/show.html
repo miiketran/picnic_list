@@ -23,7 +23,7 @@
         </li>
         <li ng-repeat="claims in item.claims" class="claim_div"> 
 
-              <span class="claim_name">{{claims.name}} </span> is bringing {{claims.quantity}} {{claims.description}}
+              <span class="claim_name">{{claims.displayName}} </span> is bringing {{claims.quantity}} {{claims.description}}
 
         </li>
         <div ng-show='item.truth' class="collapsible_body">
