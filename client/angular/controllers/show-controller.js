@@ -3,7 +3,7 @@ myApp.controller('showController', function($scope, eventFactory, $routeParams, 
 	$scope.items = [];
 	$scope.id = $routeParams.id;
 	$scope.itemClaim = {};
-
+	getUser();
 	updateEvents();
 
 	$scope.turnOn = function(item){
@@ -14,6 +14,12 @@ myApp.controller('showController', function($scope, eventFactory, $routeParams, 
 		};
 	}
 
+	function getUser(){
+		userFactory.getUser(function(output){
+			// console.log($scope.user);
+			$scope.user = output;
+		})
+	}
 
 	$scope.turnOff = function(item){
 		for (var i in $scope.events[$scope.id].items){
@@ -29,6 +35,7 @@ myApp.controller('showController', function($scope, eventFactory, $routeParams, 
 				if (typeof $scope.events[$scope.id].items[i].claims == 'undefined'){
 					$scope.events[$scope.id].items[i].claims = [];
 				}
+				$scope.itemClaim.name = $scope.user;
 				$scope.events[$scope.id].items[i].claims.push($scope.itemClaim);
 				// update in database here... REMEMBER
 				eventFactory.claimItem($scope.events[$scope.id]._id, $scope.events[$scope.id].items)
