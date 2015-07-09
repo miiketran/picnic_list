@@ -43,9 +43,9 @@
 
     window.fbAsyncInit = function() { 
       FB.init({
-        // appId      : '535173049968945',
+        appId      : '535173049968945',
         // FOR TESTING
-        appId      : '504641686367293',
+        // appId      : '504641686367293',
         xfbml      : true,
         version    : 'v2.3'
       });
@@ -61,16 +61,10 @@
     
     var socket = io.connect();
 
-    $(document).on("click", '#toastmaster', function(){
-      socket.emit('toast', name);
-      console.log('this working?');
-    }) 
-
     socket.on('makeToast', function(name){
       Materialize.toast(name, 4000);
     })
-
-    
+    socket.setMaxListeners(1);
   </script>
   <div class="container">
     <nav>

@@ -56,7 +56,6 @@ myApp.controller('eventsController', function($scope, eventFactory, userFactory,
 	}
 
 	$scope.updateEvent = function(id){
-		console.log("Hello");
 		var newEvent = {
 			title: $scope.events[id].title,
 			description: $scope.events[id].description,

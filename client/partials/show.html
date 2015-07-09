@@ -43,7 +43,7 @@
               <label for="description">Description</label>
             </div>
           </div>
-          <button id="toastmaster" type='submit' ng-click="claimItem(item.name)" class="waves-effect waves-light btn orange lighten-3">Bring It</button>
+          <button id="toastmaster" type='submit' ng-click="claimItem(item.name,events[id].items.indexOf(item))" class="waves-effect waves-light btn orange lighten-3">Bring It</button>
           <button type='submit' ng-click="turnOff(item.name)" class="waves-effect waves-light btn orange lighten-3">Cancel</button>
         </div>
       </div>

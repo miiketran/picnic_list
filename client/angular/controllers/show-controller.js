@@ -6,15 +6,6 @@ myApp.controller('showController', function($scope, eventFactory, userFactory, $
 	getUser();
 	updateEvents();
 
-$(document).ready(function (){
-
-	$(document).on("click", '#toastmaster', function(){
-			console.log($scope.itemClaim.quantity);
-			console.log($scope.itemClaim.description);
-      socket.emit('toast', $scope.user.displayName + " is bringing stuff to " + $scope.events[$scope.id].title);
-    }) 
-})
-
 	$scope.turnOn = function(item){
 		for (var i in $scope.events[$scope.id].items){
 			if ($scope.events[$scope.id].items[i].name == item){
@@ -38,7 +29,7 @@ $(document).ready(function (){
 		};
 	}
 
-	$scope.claimItem = function(item){
+	$scope.claimItem = function(item,id){
 		for (var i in $scope.events[$scope.id].items){
 			if ($scope.events[$scope.id].items[i].name == item){
 				if (typeof $scope.events[$scope.id].items[i].claims == 'undefined'){
@@ -53,6 +44,8 @@ $(document).ready(function (){
 			}
 		}
 		updateEvents();
+		var length = $scope.events[$scope.id].items[id].claims.length -1;
+	    socket.emit('toast', $scope.user.displayName + " is bringing "+" "+$scope.events[$scope.id].items[id].claims[length].quantity+" "+$scope.events[$scope.id].items[id].claims[length].description+" to " + $scope.events[$scope.id].title);
 	}
 
 	function addItemArray(){
@@ -106,10 +99,6 @@ $(document).ready(function (){
 			updateEvents();
 			$scope.newEvent = {};
 		})
-	}
-
-	$scope.removeItem = function(index){
-
 	}
 	$scope.hasMoreItems = function(item){
 		var total =0;
