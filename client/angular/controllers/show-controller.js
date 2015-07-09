@@ -1,4 +1,4 @@
-myApp.controller('showController', function($scope, eventFactory, $routeParams, $timeout){
+myApp.controller('showController', function($scope, eventFactory, userFactory, $routeParams, $timeout){
 	$scope.events = []; 
 	$scope.items = [];
 	$scope.id = $routeParams.id;
