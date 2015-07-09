@@ -35,7 +35,7 @@ myApp.controller('showController', function($scope, eventFactory, userFactory, $
 				if (typeof $scope.events[$scope.id].items[i].claims == 'undefined'){
 					$scope.events[$scope.id].items[i].claims = [];
 				}
-				$scope.itemClaim.name = $scope.user;
+				$scope.itemClaim.name = $scope.user.displayName;
 				$scope.events[$scope.id].items[i].claims.push($scope.itemClaim);
 				// update in database here... REMEMBER
 				eventFactory.claimItem($scope.events[$scope.id]._id, $scope.events[$scope.id].items)
