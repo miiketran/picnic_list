@@ -65,14 +65,13 @@ myApp.controller('eventsController', function($scope, eventFactory, userFactory,
 			_id: $scope.events[id]._id,
 			items: $scope.events[id].items
 		}
-		console.log(newEvent.time);
 		eventFactory.updateEvent(newEvent, function(output){
 			updateEvents();
 			newEvent = {};
 		})
 	}
 
-	$scope.removeItem = function(index){
-
+	$scope.removeItem = function(id){
+		$scope.events[$scope.id].items.splice(id,1);
 	}
 })

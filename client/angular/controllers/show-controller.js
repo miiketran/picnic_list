@@ -115,8 +115,7 @@ myApp.controller('showController', function($scope, eventFactory, userFactory, $
 				}
 			}
 		}
-		console.log(item.name + " quantity: " + total);
-		console.log("itemQuantity" + item.quantity);
+
 		if(total>= item.quantity){
 			return true;
 		} else {
