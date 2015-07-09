@@ -33,7 +33,7 @@
 		<h5>Items:</h5>
 		<div >
 			<ul>
-				<li ng-repeat="item in items">{{item.quantity}} {{item.name}}</li>
+				<li ng-repeat="item in items">{{item.quantity}} {{item.name}} <a href="" ng-click="removeNewItem(items.indexOf(item))"><i class="red-text text-lighten-2 fa fa-times"></i></a></li>
 			</ul>
 				<ul>
 					<div class="row">

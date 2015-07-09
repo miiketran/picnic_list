@@ -44,3 +44,9 @@
 .check{
   border-radius:50%;
 }
+
+.logo{
+  height: 70px;
+  width: 70px;
+  float: right;
+}

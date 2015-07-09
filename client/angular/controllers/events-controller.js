@@ -71,6 +71,10 @@ myApp.controller('eventsController', function($scope, eventFactory, userFactory,
 		})
 	}
 
+	$scope.removeNewItem = function(id){
+		$scope.items.splice(id,1);
+	}
+
 	$scope.removeItem = function(id){
 		$scope.events[$scope.id].items.splice(id,1);
 	}
